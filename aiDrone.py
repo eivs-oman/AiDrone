@@ -123,7 +123,7 @@ class AiDrone:
 
         return self.drone.land()
 
-    def rcc(self, LR, FB, UD, Yaw, speedCap=100):
+    def rcc(self, LR, FB, UD, Yaw, speedCap=[100, 100, 100, 100]):
         """
         Update the motor status according to the remote control command to provided value
 

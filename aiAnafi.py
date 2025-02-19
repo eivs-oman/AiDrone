@@ -159,7 +159,9 @@ class AiANAFI:
         # print(f'[DEBUG] Scaled Range = {LR}, {FB}, {UD}, {Yaw}')
 
         # Convert to integer
-        LR, FB, UD, Yaw = int(LR), int(FB), int(UD), int(Yaw)
+        #LR, FB, UD, Yaw = int(LR), int(FB), int(UD), int(Yaw)
+        LR, FB, UD, Yaw = [1 if 0 < value < 1 else -1 if -1 < value < 0 else round(value)
+                           for value in [LR, FB, UD, Yaw]]
         # print(f'[DEBUG] Integer Range = {LR}, {FB}, {UD}, {Yaw}')
 
         self.drone.piloting(-LR, FB, -Yaw, UD, self.command_time)
